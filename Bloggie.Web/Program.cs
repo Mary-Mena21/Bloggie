@@ -1,10 +1,13 @@
+using Bloggie.Web.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//Add DI
-//builder.Services.AddDbContext<TransactionDbContext>(options =>
-//options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//Add DI  Inject DB context inside the services of our application
+builder.Services.AddDbContext<BloggieDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,3 +30,10 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+
+//Add-Migration "Initial Migration"
+//Update-Database
+
+//connect with SQL and create tables
