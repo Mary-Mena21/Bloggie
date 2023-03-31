@@ -27,7 +27,7 @@ namespace Bloggie.Web.Controllers
             //var diplayName= addTagRequest.DisplayName;
             var tag = new Tag()
             {
-                Id=Guid.NewGuid(),
+                //Id=Guid.NewGuid(),
                 Name = addTagRequest.Name,
                 DisplayName = addTagRequest.DisplayName,
             };
